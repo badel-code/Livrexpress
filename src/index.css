@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-cream font-sans text-charcoal;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    @apply bg-clay text-cream;
+  }
+}
+
+@layer components {
+  /* Boutons : sensation magnétique au survol */
+  .btn-magnetic {
+    transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform;
+  }
+  .btn-magnetic:hover {
+    transform: scale(1.03);
+  }
+
+  /* Liens et éléments interactifs : léger soulèvement */
+  .lift {
+    display: inline-block;
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s ease;
+  }
+  .lift:hover {
+    transform: translateY(-1px);
+  }
+
+  .eyebrow {
+    @apply font-mono text-[11px] uppercase tracking-[0.22em];
+  }
+}
+
+@layer utilities {
+  .caret-blink {
+    animation: caret-blink 1s steps(1) infinite;
+  }
+}
+
+@keyframes caret-blink {
+  50% {
+    opacity: 0;
+  }
+}
